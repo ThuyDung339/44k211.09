@@ -1,0 +1,52 @@
+.header{
+    color: bisque;
+    background-image: url('../assets/images/157001687_1570089459856594_6683698068463792284_n.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100px;
+    background-size: 100vw 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px;
+    align-items: center;
+
+}
+.main{
+   height: calc(100vh - 100px);
+   background-image: url('../assets/images/157909718_439477913827859_8937841587961678925_n.jpg');
+   padding: 1px;
+    background-repeat: repeat-y;
+}
+.icon {
+  color: #fff;
+  font-size: 24px;
+}
+.icon > span{
+    padding: 7px;
+    margin: 5px;
+    border-radius: 50%;
+}
+/* currency name */
+.search-header{
+    display: flex;
+    justify-content: center;
+}
+.search-header >button{
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border-radius: 0 5px 5px 0;
+    margin: 0;
+    background-color: rgb(67, 146, 236);
+    
+}
+.search-header >input{
+    border-radius: 5px 0 0 5px;
+    margin: 0;
+    width: 350px;
+}
+::placeholder{
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -1,0 +1,31 @@
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 24px;
+    height: 100%;
+    overflow:auto;
+}
+
+.home > div {
+    width: 550px;
+}
+
+.btn-create{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 24px 12px 0 0;
+}
+
+.create-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+   
+}
+.create-btn-wrapper >button{
+   background-color: rgb(67, 146, 236);
+   border-radius: 5px;
+}
