@@ -16,7 +16,8 @@ export default function ListRoom() {
           <div>Số lượng :{ data.quantity}</div>
           <div>Địa điểm :{ data.address}</div>
           <div>Thời gian :{data.time}</div>
-          </div>
+           <Button className='join'>Tham gia</Button>
+        </div>
         </Col>
     ))}  
         </Row>

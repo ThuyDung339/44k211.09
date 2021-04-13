@@ -103,7 +103,7 @@ label {
 .col-roomchat >div {
   background-color: rgb(163, 220, 248);
   border-radius: 10px;
-  height: 210px;
+  height: 240px;
   padding: 12px;
 }
 .item{
@@ -124,3 +124,7 @@ label {
   outline: none;
   width: 100%;
 } */
+.join{
+  width: 100px;
+  border-radius: 5px;
+}
