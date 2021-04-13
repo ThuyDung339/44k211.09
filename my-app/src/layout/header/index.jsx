@@ -8,7 +8,7 @@ import {
     SearchOutlined, CompassOutlined
 } from '@ant-design/icons';
 import { Input,Menu, Dropdown } from 'antd';
-
+import { useHistory } from 'react-router';
 const menu = (
   <Menu>
     <Menu.Item>
@@ -23,7 +23,11 @@ const menu = (
     </Menu.Item>
   </Menu>
 );
-export default function index() {
+const Header = () => {
+  const history = useHistory();
+  const handleClick = function () {
+      history.push("/infor-user");
+  }
     return (
         <div className='header'>
             <div>
@@ -34,7 +38,7 @@ export default function index() {
                <button><SearchOutlined/></button> 
             </div>
             <div className='icon'>
-                <UserOutlined style={{ backgroundColor: "rgb(67, 146, 236)" }} />
+                <UserOutlined onClick={handleClick} style={{ backgroundColor: "rgb(67, 146, 236)" }} />
                 <Dropdown overlay={menu} placement="bottomCenter">
                   <CompassOutlined style={{ backgroundColor: "rgb(12, 145, 56)" }} />
                 </Dropdown>                
@@ -44,3 +48,4 @@ export default function index() {
         </div>
     )
 }
+export default Header;

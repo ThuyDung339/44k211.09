@@ -111,7 +111,7 @@ label {
   flex-direction: column;
   justify-content: space-around;
 }
-button {
+/* button {
   margin: 20px 0 0 0;
   padding: 10px 20px;
   border-style: none;
@@ -123,4 +123,4 @@ button {
   cursor: pointer;
   outline: none;
   width: 100%;
-}
+} */

@@ -8,13 +8,13 @@ export default function Main() {
     return (
       <div className='main'>
         <Switch>
-          <Route path="/about">
+          <Route exact path="/about">
             <p>about</p>
           </Route>
-          <Route path="/users">
+          <Route exact path="/infor-user">
            <p>user</p>
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home/>
           </Route>
           </Switch>
