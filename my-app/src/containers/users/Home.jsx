@@ -112,7 +112,7 @@ const CollectionsPage = () => {
           setVisible(true);
         }}
       >
-        New Collection
+        Tạo nhóm
       </Button>
       <CollectionCreateForm
         visible={visible}

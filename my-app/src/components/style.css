@@ -128,3 +128,53 @@ label {
   width: 100px;
   border-radius: 5px;
 }
+.left{
+float: left;
+clear: both;
+background-color: #fff;
+}
+.right{
+  float: right;
+  clear: both;
+  background-color:#fff;
+}
+.roomchat{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 90%;
+  margin: 10px auto;
+  background-color: #5cacec;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.list-content-chat{
+  width: 100%;
+  padding: 10px;
+}
+.list-content-chat>div{
+  width: fit-content;
+  max-width: 200px;
+  height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  word-break: break-word;
+}
+.typing{
+  width: 100%;
+  display: flex;
+}
+.typing >input{
+  margin: 20px ;
+  margin-right: 0;
+  border-radius: 10px 0 0 10px;
+}
+.typing>button {
+  margin: 20px;
+  margin-left: 0;
+  border-radius:  0 10px 10px 0;
+  color:rgb(33, 97, 218);
+  font-weight: 700;
+}

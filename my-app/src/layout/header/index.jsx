@@ -28,6 +28,10 @@ const Header = () => {
   const handleClick = function () {
       history.push("/infor-user");
   }
+  const logout = function () {
+    localStorage.removeItem("token");
+    history.push("/login");
+  }
     return (
         <div className='header'>
             <div>
@@ -43,7 +47,7 @@ const Header = () => {
                   <CompassOutlined style={{ backgroundColor: "rgb(12, 145, 56)" }} />
                 </Dropdown>                
                 <MessageOutlined  style={{ backgroundColor: "rgb(233, 97, 19)"}} />
-                <LogoutOutlined style={{ backgroundColor: "rgb(40, 55, 73)" }} />
+                <LogoutOutlined onClick={logout} style={{ backgroundColor: "rgb(40, 55, 73)" }} />
             </div>            
         </div>
     )
