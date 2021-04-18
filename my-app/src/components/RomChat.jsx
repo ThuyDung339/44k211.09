@@ -37,13 +37,15 @@ export default function RomChat() {
     <div className="roomchat">
       <div className='list-content-chat'>
         <div>Title: Địa điểm</div>
-        {listchat.map(data => (
+        {(conversation.length > 0) &&
+          (conversation.map(data => (
           <>
-            {data.content.map(item => (
-              <div className={data.id==='1'?"left ":"right"}>{item.text}</div>
+            {data.content.map(item => (// sẽ sửa lại thành data.id 
+              <div className={data.name==='An'?"left ":"right"}>{item.text}</div>
             ))}
           </>
-        ))}
+        )) )       
+        }
       </div>
       <div className='typing'>
         <Input />
