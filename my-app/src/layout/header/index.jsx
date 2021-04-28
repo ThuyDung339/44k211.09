@@ -12,12 +12,12 @@ import { useHistory } from 'react-router';
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <a  rel="noopener noreferrer" href="/travel">
         Du lịch
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+      <a  rel="noopener noreferrer" href="/cuisine">
         Ẩm thực
       </a>
     </Menu.Item>

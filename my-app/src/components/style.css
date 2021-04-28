@@ -178,3 +178,38 @@ background-color: #fff;
   color:rgb(33, 97, 218);
   font-weight: 700;
 }
+.post-article{
+  background-color: #fff;
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+  width: 700px;
+  min-height: calc(100vh - 100px)
+
+}
+.hight-light{
+  width:100%;
+  height: 150px;
+  display: inline-flex;
+}
+.image-hl{
+  width: 50%;
+  margin-right: 10px;
+}
+.content-hl{
+  width: 50%;
+}
+.post-travel {
+  width:100%;
+  height: 150px;
+  display: inline-flex;
+  margin: 10px 0;
+}
+.image-ar {
+  width: 40%;
+  margin-right: 10px;
+}
+
+.content-ar {
+  width: 60%;
+}

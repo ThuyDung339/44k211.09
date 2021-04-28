@@ -34,9 +34,12 @@ export const Register = createAsyncThunk(
     async (payload, thunkAPI) => {
       console.log(payload,'payload nè')
     try {
-        const response = await fetch('https://proxibox-pharma-api-staging.enouvo.com/api/v1/admin/auth/login', {
+        const response = await fetch('http://localhost:3098/api/user/register', {
             method: 'POST',
-            body: JSON.stringify(payload)
+          body: JSON.stringify(payload),
+          headers: {
+              'Content-Type': 'application/json'
+            }
         }).then(res => res.json())
       if (response) {
 //chuyển sang trang login

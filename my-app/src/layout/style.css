@@ -9,13 +9,16 @@
     justify-content: space-between;
     padding: 0 70px;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index:999;
 
 }
 .main{
-   height: calc(100vh - 100px);
+   min-height: calc(100vh);
    background-image: url('../assets/images/157909718_439477913827859_8937841587961678925_n.jpg');
-   padding: 1px;
-    background-repeat: repeat-y;
+   padding-top: 100px ;
+    background-attachment: fixed;
 }
 .icon {
   color: #fff;

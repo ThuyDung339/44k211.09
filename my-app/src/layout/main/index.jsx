@@ -2,7 +2,9 @@ import React from 'react'
 import {
   Route, Switch
 } from "react-router-dom";
+import Cuisine from '../../components/Cuisine';
 import RomChat from '../../components/RomChat';
+import Travel from '../../components/Travel';
 import Home from '../../containers/users/Home'
 import './../style.css'
 export default function Main() {
@@ -18,7 +20,13 @@ export default function Main() {
           <Route exact path="/">
             <Home/>
           </Route>
-          </Switch>
+          <Route exact path="/travel">
+            <Travel/>
+          </Route>
+          <Route exact path="/cuisine">
+            <Cuisine/>
+          </Route>          
+        </Switch>
         </div>
     )
 }
