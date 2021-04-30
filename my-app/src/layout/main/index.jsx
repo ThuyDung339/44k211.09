@@ -5,7 +5,9 @@ import {
 import Cuisine from '../../components/Cuisine';
 import RomChat from '../../components/RomChat';
 import Travel from '../../components/Travel';
-import Home from '../../containers/users/Home'
+import Home from '../../containers/users/Home';
+import PostTravelDetail from '../../components/postTravelDetail'
+import PostCuisineDetail from '../../components/postCuisineDetail'
 import './../style.css'
 export default function Main() {
     return (
@@ -25,7 +27,9 @@ export default function Main() {
           </Route>
           <Route exact path="/cuisine">
             <Cuisine/>
-          </Route>          
+          </Route>
+          <Route exact path='/travel/:id' component={PostTravelDetail} />
+          <Route exact path='/cuisine/:id' component={PostCuisineDetail}/>
         </Switch>
         </div>
     )

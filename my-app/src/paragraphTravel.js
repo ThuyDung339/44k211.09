@@ -70,7 +70,10 @@ Chúc bạn và gia đình sẽ có một chuyến du lịch tới thành phố 
     short: "Đà Nẵng được mệnh danh là một trong những thành phố đáng sống nhất của Việt Nam. Thành phố Đà Nẵng giáp với tỉnh Thừa Thiên - Huế và giáp với Quảng Nam về phía nam. Nơi đây hàng năm thu hút được hàng nghìn lượt khách du lịch cả trong nước và quốc tế ghé thăm.",
     image:thanhpho
 }
-export const posts = [{
+
+
+export const PostAPI = {
+ posts : [{
     id: "0",
     title: "Ẩm thực Đà Nẵng",
     content: `1. Gỏi cá Nam Ô
@@ -140,7 +143,8 @@ Bánh khô mè Đà Nẵng
 
 6. Nem tré Đà Nẵng
 Tré trông rất giống các loại nem như nem chua, nem thính, nem nướng ở Thanh Hóa nhưng có mùi vị khác biệt và đặc trưng không lẫn vào đâu được so với những loại nem ấy. Tré được làm từ thịt ba chỉ, thịt mông, thịt nạc và bì heo, kết hợp với gia vị chính là củ riềng và gói trong lá chuối. Đây là món ăn mà bất cứ ai ghé thăm Đà Nẵng hay miền Trung đều bị cuốn hút bởi độ sần sật, bùi bùi và vị chua đặc trưng.`,
-    image:muckho, short:`Mực khô một nắng
+        image: muckho,
+        short:`Mực khô một nắng
 Mực khô ở đây vẫn mang hương vị mặn mòi của muối biển, của nắng và của gió ngấm trong từng thớ mực. Đến với Đà Nẵng hầu hết các du khách đều mua món này về.
 
 Đặc sản Đà Nẵng làm quà: mực khô một nắng `
@@ -153,4 +157,10 @@ Mực khô ở đây vẫn mang hương vị mặn mòi của muối biển, c�
     // short:``
     // }
 
-]
+],
+  all: function() { return this.posts},
+  get: function(_id) {
+    const isPost = p => p.id === _id
+    return this.posts.find(isPost)
+  }
+}

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getcurrencies } from './action';
+import { getInforUser } from './action';
 
 export const initialState = {
     a: false,
@@ -13,11 +13,11 @@ const { reducer } = createSlice({
   reducers: {
   },
   extraReducers: {
-    [getcurrencies.fulfilled]: state => {
+    [getInforUser.fulfilled]: state => {
     },
-    [getcurrencies.rejected]: state => {
+    [getInforUser.rejected]: state => {
     },
-    [getcurrencies.pending]: state => {
+    [getInforUser.pending]: state => {
       state.pending = true
     }
   }

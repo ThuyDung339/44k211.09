@@ -71,7 +71,9 @@ Chúc bạn và gia đình sẽ có một chuyến du lịch tới thành phố 
     image:thanhpho
 }
 
-export const posts = [{
+
+export const PostAPI = {
+ posts : [{
     id: "0",
     title: "Ẩm thực Đà Nẵng",
     content: `1. Gỏi cá Nam Ô
@@ -125,31 +127,33 @@ Rong biển Mỹ Khê – đặc sản làm quà Đà Nẵng (Ảnh ST)
 
 Đặc sản Đà Nẵng làm quà: chả bò 
 
+Chả bò Đà Nẵng (Ảnh ST)
 
 4. Mực khô một nắng
 Mực khô ở đây vẫn mang hương vị mặn mòi của muối biển, của nắng và của gió ngấm trong từng thớ mực. Đến với Đà Nẵng hầu hết các du khách đều mua món này về.
 
 Đặc sản Đà Nẵng làm quà: mực khô một nắng 
 
+
 5. Bánh khô mè
 Thêm một món đặc sản Đà Nẵng mà du khách không thể bỏ qua: khô mè Cẩm Lệ. Được chế biến từ Bánh khô mè từ mía đường, bột nếp, mè, bên ngoài phủ đường non và bột quế, bánh khô mè thoạt nhìn có vẻ giống mè xửng của Huế nhưng khi ăn vào sẽ thấy giòn tan, ngọt, thơm và khô hề dính răng như mè xửng.
 
 Bánh khô mè Đà Nẵng 
 
+
 6. Nem tré Đà Nẵng
 Tré trông rất giống các loại nem như nem chua, nem thính, nem nướng ở Thanh Hóa nhưng có mùi vị khác biệt và đặc trưng không lẫn vào đâu được so với những loại nem ấy. Tré được làm từ thịt ba chỉ, thịt mông, thịt nạc và bì heo, kết hợp với gia vị chính là củ riềng và gói trong lá chuối. Đây là món ăn mà bất cứ ai ghé thăm Đà Nẵng hay miền Trung đều bị cuốn hút bởi độ sần sật, bùi bùi và vị chua đặc trưng.`,
         image: muckho,
-    short:`Mực khô một nắng
+        short:`Mực khô một nắng
 Mực khô ở đây vẫn mang hương vị mặn mòi của muối biển, của nắng và của gió ngấm trong từng thớ mực. Đến với Đà Nẵng hầu hết các du khách đều mua món này về.
 
 Đặc sản Đà Nẵng làm quà: mực khô một nắng `
-    },
-    // {
-    // id: "2",
-    // title: "",
-    // content: ``,
-    //     image: '',
-    // short:``
-    // }
+    }
 
-]
+],
+  all: function() { return this.posts},
+  get: function(_id) {
+    const isPost = p => p.id === _id
+    return this.posts.find(isPost)
+  }
+}

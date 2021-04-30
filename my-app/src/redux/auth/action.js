@@ -4,20 +4,19 @@ export const login = createAsyncThunk(
   'auth/login',
     async (payload, thunkAPI) => {
     try {
-      const response = await fetch('https://proxibox-pharma-api-staging.enouvo.com/api/v1/admin/auth/login', {
+      const response = await fetch('http://localhost:3098/api/auth/login', {
         method: 'POST',
         body: JSON.stringify(payload),
         // headers: {
         //   Authorization: `Bearer ${localStorage.getItem('token')}`
         //   }
+          headers: {
+              'Content-Type': 'application/json'
+            }        
         }).then(res => res.json())
       if (response) {
-        //setstate(username={res.fullname})
-        console.log(response,'res')
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('fullName', response.email);
-        localStorage.setItem('id', response.id);
-        console.log(response,'response nè')
+        console.log('222', response)
+        localStorage.setItem('token', response.data);
         return response;
         //chuyển sang trang chủ
       }

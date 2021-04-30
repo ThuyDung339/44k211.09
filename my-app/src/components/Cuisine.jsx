@@ -1,7 +1,8 @@
 import React from 'react'
-import { hightlight, posts } from '../paragraphCuisine';
-
+import { hightlight, PostAPI } from '../paragraphCuisine';
+import { Link } from 'react-router-dom'
 export default function Cuisine() {
+    const posts = PostAPI.posts;
     return (
         <div className= 'post-article'>
             <div className='hight-light'>
@@ -15,15 +16,17 @@ export default function Cuisine() {
             </div>
             <div className='article'>
                 {posts.map((item) => (
-                    <div className='post-travel'>
-                        <div className='image-ar'>
-                            <img src={item.image} alt="Logo" width='100%' />
-                        </div>
-                        <div className="content-ar">
-                            <h4>{item.title}</h4>
-                            <p>{item.short}</p>
-                        </div>
-                    </div>    
+                    <Link to={`/cuisine/${item.id}`}>
+                        <div className='post-travel'>
+                            <div className='image-ar'>
+                                <img src={item.image} alt="Logo" width='100%' />
+                            </div>
+                            <div className="content-ar">
+                                <h4>{item.title}</h4>
+                                <p>{item.short}</p>
+                            </div>
+                            </div>
+                    </Link>    
                 ))}
             </div>            
         </div>
