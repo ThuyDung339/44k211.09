@@ -3,6 +3,7 @@ import {
   Route, Switch
 } from "react-router-dom";
 import Home from '../../containers/users/Home'
+import InforUser from '../../components/InforUser'
 import './../style.css'
 export default function Main() {
     return (
@@ -11,10 +12,10 @@ export default function Main() {
           <Route path="/about">
             <p>about</p>
           </Route>
-          <Route path="/users">
-           <p>user</p>
+          <Route exact path="/infor-user">
+           <InforUser />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home/>
           </Route>
           </Switch>
