@@ -174,7 +174,7 @@ background-color: #fff;
   min-height: calc(100vh - 100px)
 
 }
-.hight-light{
+.hight-light  >a{
   width:100%;
   height: 150px;
   display: inline-flex;
@@ -212,7 +212,7 @@ background-color: #fff;
 }
 
 .form-user-infor{
-  margin: auto;
-  background-color: #007eff;
+  padding-top: 40px;
+  margin: auto ;
   width: 700px;
 }

@@ -1,9 +1,10 @@
-import React from 'react'
-import { PostAPI} from '../paragraphCuisine'
-import './style.css'
 
-const PostCuisineDetail = (props) => {
-  const post = PostAPI.get(
+import React from 'react'
+import { PostAPIHl } from '../paragraphTravel';
+import './style.css';
+
+const HightlightPostTravel = (props) => {
+  const post = PostAPIHl.get(
    props.match.params.id
   )
   if (!post) {
@@ -18,4 +19,4 @@ const PostCuisineDetail = (props) => {
   )
 }
 
-export default PostCuisineDetail
+export default HightlightPostTravel

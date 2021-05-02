@@ -8,8 +8,11 @@ import Travel from '../../components/Travel';
 import Home from '../../containers/users/Home';
 import PostTravelDetail from '../../components/postTravelDetail'
 import PostCuisineDetail from '../../components/postCuisineDetail'
-import './../style.css'
 import {InforUser }from '../../components/InforUser';
+import HightlightPostTravel from '../../components/HightlightPostTravel';
+import HightlightPostCuisine from '../../components/HightlightPostCuisine';
+import './../style.css'
+
 export default function Main() {
     return (
       <div className='main'>
@@ -30,7 +33,9 @@ export default function Main() {
             <Cuisine/>
           </Route>
           <Route exact path='/travel/:id' component={PostTravelDetail} />
-          <Route exact path='/cuisine/:id' component={PostCuisineDetail}/>
+          <Route exact path='/cuisine/:id' component={PostCuisineDetail} />
+          <Route exact path='/travel/hight-light/:id' component={HightlightPostTravel} />
+          <Route exact path='/cuisine/hight-light/:id' component={HightlightPostCuisine}/>
         </Switch>
         </div>
     )

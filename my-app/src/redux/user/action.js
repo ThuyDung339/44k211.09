@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { message } from 'antd';
 export const getInforUser = createAsyncThunk(
   'user/getInforUser',
     async (payload, thunkAPI) => {
@@ -10,7 +11,7 @@ export const getInforUser = createAsyncThunk(
           }
         }).then(res => res.json())
       if (response) {
-      localStorage.setItem('user-infor',  JSON.stringify(response.data ));
+        localStorage.setItem('user-infor',  JSON.stringify(response.data ));
         return response.data;
       }
       return thunkAPI.rejectWithValue(response);
@@ -56,7 +57,12 @@ export const postupdateInforUser = createAsyncThunk(
             token: `${localStorage.getItem('token')}`
             }
         }).then(res => res.json())
-      if (response.message==='SUCCESS') {
+      if (response.message === 'SUCCESS') {
+          const messSuccess = () => {
+            message.success('Update success');
+            
+           };
+        messSuccess();        
         return response;
       }
       return thunkAPI.rejectWithValue(response);

@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { postupdateInforUser } from '../redux/user/action';
+import { postupdateInforUser, getInforUser } from '../redux/user/action';
 import { Form, Input, Button } from 'antd';
 import _ from 'lodash';
 import 'antd/dist/antd.css';
@@ -11,14 +11,16 @@ import './style.css';
 export const InforUser = () => {
   const dispatch = useDispatch();
   const onFinish = (values) => {
-     console.log(_.omit({ ...values, id:inforUser.id}, ['email']),'valuesccó gì nò')
-    dispatch(postupdateInforUser(_.omit({ ...values, id:inforUser.id}, ['email'])));
+    dispatch(postupdateInforUser(_.omit({ ...values, id: inforUser.id }, ['email'])));
   };
-
+  useEffect(() => {
+    dispatch(getInforUser());
+  }, []);
   const inforUser = JSON.parse(localStorage.getItem('user-infor'));//useSelector(state=>state.user.inforUser)
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
+  
 const layout = {
   labelCol: {
     span: 4,
@@ -83,9 +85,9 @@ const layout = {
         >
           <Input />
         </Form.Item>        
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+        <Form.Item style={{float: 'right'}}>
           <Button type="primary" htmlType="submit">
-            Submit
+            Update
           </Button>
         </Form.Item>
       </Form>      

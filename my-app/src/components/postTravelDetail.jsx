@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { PostAPI } from '../paragraphTravel';
+import { PostAPI} from '../paragraphTravel';
 import './style.css';
 
 const PostTravelDetail = (props) => {

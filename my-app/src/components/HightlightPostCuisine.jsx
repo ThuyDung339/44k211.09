@@ -1,11 +1,14 @@
-import React from 'react'
-import { PostAPI} from '../paragraphCuisine'
-import './style.css'
 
-const PostCuisineDetail = (props) => {
-  const post = PostAPI.get(
+import React from 'react'
+import { PostAPIHl } from '../paragraphTravel';
+import './style.css';
+
+const HightlightPostCuisine = (props) => {
+  const post = PostAPIHl.get(
    props.match.params.id
-  )
+    )
+    console.log(post, 'gì thế nhỉ')
+     console.log(props,' props gì thế nhỉ')
   if (!post) {
     return <div>Sorry, but the posts was not found</div>
   }
@@ -18,4 +21,4 @@ const PostCuisineDetail = (props) => {
   )
 }
 
-export default PostCuisineDetail
+export default HightlightPostCuisine

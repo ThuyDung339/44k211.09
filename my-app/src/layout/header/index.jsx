@@ -41,7 +41,9 @@ const Header = () => {
     return (
         <div className='header'>
             <div>
-              <img src={logo} alt="logo" style={{ width: "100px" }}/>            
+                <a href='/'>
+                  <img src={logo} alt="logo" style={{ width: "100px" }} />
+                 </a>
             </div>
             <div className='search-header'>
                <Input placeholder='Tìm kiếm' />
