@@ -19,7 +19,6 @@ class UserController {
     async update(req, res) {
         let { userData } = req;
         if (!userData) throw new Error('Tài khoản không hợp lệ');
-
         let data = req.body;
         return await MidUser.updateUser(data, userData.id);
     }

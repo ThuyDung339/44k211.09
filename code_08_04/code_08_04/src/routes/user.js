@@ -7,7 +7,7 @@ let routerApp = new Router();
 
 routerApp.post('/register', Response(UserController.register));
 routerApp.get('/getAll', isAuth, Response(UserController.getAllUser));
-routerApp.put('/update', isAuth, Response(UserController.update));
+routerApp.post('/update', isAuth, Response(UserController.update));
 routerApp.put('/change-password', isAuth, Response(UserController.changePassword));
 routerApp.get('/delete', isAuth, Response(UserController.deleteUser));
 routerApp.get('/info-friend', isAuth, Response(UserController.getInfoFriend));

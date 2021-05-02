@@ -149,7 +149,10 @@ class MidUser {
             lastname: data.lastname,
             del: 0,
         };
-        return await objUpdate.update(dataUpdate);
+        objUpdate.update(dataUpdate);
+
+
+        return true;
 
     }
     async updatePassword(data) {

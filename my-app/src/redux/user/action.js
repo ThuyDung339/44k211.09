@@ -10,7 +10,7 @@ export const getInforUser = createAsyncThunk(
           token: `${localStorage.getItem('token')}`
           }
         }).then(res => res.json())
-      if (response) {
+      if (response && response.data) {
         localStorage.setItem('user-infor',  JSON.stringify(response.data ));
         return response.data;
       }

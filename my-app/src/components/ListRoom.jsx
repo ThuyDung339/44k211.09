@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router';
-import { Row, Col, Button, Modal} from "antd";
+import { Row, Col, Button, Modal } from "antd";
+import { DeleteOutlined,EditOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
 export default function ListRoom(props) {
   const { listRoomChat } = props;
   const history = useHistory();
+  const inforUser = JSON.parse(localStorage.getItem('user-infor'));
   const handleJoin = function () {
     history.push('/chat/id')
   }
@@ -49,14 +51,24 @@ export default function ListRoom(props) {
         curr_year
     );
 }
-
+  console.log(listRoomChat, 'có gì nào')
+  // so sánh với id của userinfor
+  console.log(inforUser, 'if')
   return (
     <div className='list-room'>
       <Row className='row-roomchat' gutter={[48, 24]}>
       {listRoomChat && listRoomChat.map(data => (
         <Col span={12} className="col-roomchat">
           <div className="item">
-           <div>{ data.name}</div>
+            <div className='title-each-room'>
+              <h4 style={{ "font-weight": "bold" }}>{data.name}</h4>
+              {(inforUser && data.owner_id === inforUser.id) &&
+                <div>
+                  <DeleteOutlined />
+                  <EditOutlined />
+              </div>
+              }
+            </div>
            <img
             src={`http://localhost:3098/${data.image}`}
             alt="logo"

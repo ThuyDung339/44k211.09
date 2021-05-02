@@ -21,18 +21,6 @@ export default function RomChat() {
     console.log(`New message incomig! ${newMessage}`);
     // Now send the message throught the backend API (id_user and message)
   }
-  const listchat = [
-    {
-      id: "1",
-      name: 'Nga',
-      content: [{ text: "left", time: "14h ngày 30" }, { text: "left left left ", time: "15h ngày 30" }]
-    },
-    {
-      id: "2",
-      name: 'Lan',
-      content: [{ text: "right", time: "14h ngày 30" }, { text: "right bbbbbbbbbbbbbbbbfffffffffffffffffffffffffffffffffffffffffffffffff nananaaa ", time: "15h ngày 30" }]
-    }
-  ];
   return (
     <div className="roomchat">
       <div className='list-content-chat'>

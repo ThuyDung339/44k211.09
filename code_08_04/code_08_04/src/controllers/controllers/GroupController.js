@@ -19,7 +19,7 @@ class GroupController {
         const dataUpload = await uploadMedia(req, res);
         let data = req.body;
         data.image = dataUpload.filename;
-        data.onwer_id = userData.id;
+        data.owner_id = userData.id;
         return await MidGroup.addGroup(data);
     }
 

@@ -183,8 +183,13 @@ background-color: #fff;
   width: 50%;
   margin-right: 10px;
 }
+.image-hl >img{
+  height: 100%;
+}
 .content-hl{
   width: 50%;
+    overflow: hidden;
+    text-overflow: clip;
 }
 .post-travel {
   width:100%;
@@ -200,6 +205,8 @@ background-color: #fff;
 
 .content-ar {
   width: 60%;
+  overflow: hidden;
+  text-overflow: clip;
 }
 .post-detail {
   width: 700px;
@@ -215,4 +222,8 @@ background-color: #fff;
   padding-top: 40px;
   margin: auto ;
   width: 700px;
+}
+.title-each-room{
+  display: flex;
+  justify-content: space-between;
 }

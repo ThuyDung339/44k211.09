@@ -37,14 +37,14 @@ class MidGroup {
         let newGroup = await Group.create(data);
         if (newGroup) {
             UserGroup.create({
-                user_id: newGroup.owner_id,
+                user_id: data.owner_id,
                 group_id: newGroup.id,
                 del: 0
             })
-
+            
             return newGroup;
         }
-
+        
         return null;
     }
 
@@ -90,11 +90,17 @@ class MidGroup {
         }
 
         let includeOpt = [
-        {
-            association: "user_group",
-            required: true,
-            where: { del: 0 },
-        }];
+            {
+                association: "user_group",
+                required: true,
+                where: { del: 0 }
+            },
+            {
+                association: "owner_group",
+                required: true,
+                where: { del: 0 }
+            }
+        ];
 
         return Group.findAndCountAll({
             where: condition,

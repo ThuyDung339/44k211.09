@@ -10,7 +10,7 @@ export default function Cuisine() {
                 {hightlight.map((item) => (
                    <Link to={`/cuisine/hight-light/${item.id}`}>
                         <div className='image-hl'>
-                            <img src={item.image} alt="Logo" width='100%' />
+                            <img src={item.image} alt="" width='100%' />
                         </div>
                         <div className="content-hl">
                             <h4>{item.title}</h4>

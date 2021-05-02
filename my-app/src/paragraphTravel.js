@@ -1,6 +1,6 @@
 import thanhpho from './assets/images/thanh-pho-da-nang-xinh-dep-3884.jpg';
-import banhxeo from './assets/images/banhxeo.jpg';
-import muckho from './assets/images/muckho.jpg'
+import hohoatrung from './assets/images/ho-hoa-trung-da-nang-1.jpg'
+import cauvang from './assets/images/cay-cau-vang-pullman-danang-4.jpg';
 export const hightlight = {
     id: "1",
     title: "Thành phố Đà Nẵng xinh đẹp",
@@ -75,87 +75,40 @@ Chúc bạn và gia đình sẽ có một chuyến du lịch tới thành phố 
 export const PostAPI = {
  posts : [{
     id: "0",
-    title: "Ẩm thực Đà Nẵng",
-    content: `1. Gỏi cá Nam Ô
-Đây là một đặc sản nổi tiếng chỉ có ở làng Nam Ô khi du lịch Đà Nẵng. Món ăn này chủ yếu ngon ở thịt cá được đánh bắt trực tiếp từ biển nên rất ngọt và tươi, qua khâu chế biến kỹ càng thì lại càng có hương vị đặc biệt, lạ miệng mà lại không tanh chút nào. Gỏi cá Nam Ô ngon nhất nếu được chế biến từ cá trích.
+    title: "ĐÀ NẴNG CÓ GÌ MỚI?",
+    content: `
+Siêu phẩm Cây Cầu Vàng Đà Nẵng trên đỉnh Bà Nà Hill vừa được trình làng thơ mộng khiến cánh báo giới quốc tế không ngớt lời ca ngợi. Với thiết kế vô cùng ấn tượng, hai bàn tay rêu phong to lớn vươn ra từ thân núi nắm lấy tấm lụa vàng lơ lửng giữa trời, tuyệt tác này còn được mọi người nhắc đến với cái tên Cầu Bàn Tay – một trong những địa điểm đẹp sống ảo không thể bỏ qua khi đi du lịch Đà Nẵng.
 
-Ẩm thực Đà Nẵng: gỏi cá Nam Ô
+Cây cầu Vàng Bà Nà Hill được xây dựng chưa đầy một năm, khánh thành và được mở cửa vào tháng 6 năm 2018. Chỉ trong một thời gian ngắn, các tour du lịch Cây Cầu Vàng Đà Nẵng đã thu hút hàng trăm ngàn lượt khách , và đã trở thành hiện tượng lan truyền trên mạng xã hội. Thiết kế trưởng bởi Ông Vũ Việt Anh, thuộc công ty TA Landscape Architecture, cho biết ông đã rất tự hào khi hình ảnh của công trình này được du khách từ khắp nơi trên thế giới chia sẻ và ủng hộ.
 
+Với độ dài 150 mét và nằm ở độ cao 1414 mét so với mực nước biển, Cây Cầu Vàng đã tạo nên một lối đi giữa không trung, giữa khung ảnh mờ sương như chốn bồng lai tiên cảnh của núi Bà Nà. Đứng ở vị trí đôi bàn tay rêu phong, du khách có thể ngắm nhìn những cánh rừng nguyên sinh trải dài tít tắp, xa xa là toàn cảnh thành phố Đà Nẵng xinh đẹp.
 
-2. Cơm gà Đà Nẵng
-Từ lâu cơm gà đã trở thành một món ăn đặc trưng ở Đà Nẵng, đặc biệt miếng gà chiên giòn rụm thêm chút cay cay của tương ớt cùng cơm mềm dẻo nóng hổi, khi ăn kèm với kim chi hoặc dưa leo có vị rất riêng biệt tạo nết sự hấp dẫn riêng cho dĩa cơm gà.
+ay-cau-vang-pullman-danang-4
 
-Ẩm thực Đà Nẵng: cơm gà Đà Nẵng 
+Sun World Bà Nà Hills đã và đang là điểm du lịch trọng điểm của Đà Nẵng, thu hút khách du lịch với hàng loạt các sự kiện và công trình độc đáo như cáp treo Bà Nà, làng Pháp, vườn hoa tình yêu, bảo tàng sáp… Tuy nhiên nhờ sự quan tâm đặc biệt của các tờ báo lớn trên thế giới, sự ra đời của tuyệt tác này sẽ góp phần đẩy mạnh nền du lịch của không chỉ riêng thành phố biển mà còn cả Việt Nam.
 
+Ngày 14/7 vừa qua, nhà thiết kế Long Kan cũng vừa cho ra mắt Bộ sưu tập thời trang trong chương trình Fashion Voyage – Dạo bước trên mây và chọn kiệt tác Cây Cầu Vàng Sun World Bà Nà Hills làm sàn catwalk đầy ấn tượng với sự góp mặt của những gương mặt tên tuổi trong làng thời trang Việt Nam.
 
-3. Bún chả cá
-Có thể rất nhiều người đã ăn món bún chả cá rồi nhưng nếu muốn thử một hương vị thật đặc biệt thì đừng nên bỏ qua món này ở Đà Nẵng. Hương thơm ngào ngạt cùng nước lèo ngọt mát, đậm đà từ rau củ quả, thêm chút ngọt ủa hành hương và vị cay của ớt làm nên một tô bún ngon không thể cưỡng lại được.
+Nên đi thăm quan du lịch cầu Bàn Tay – Bà Nà Hill Đà Nẵng vào thời gian nào? 
 
-Ẩm thực Đà Nẵng: bún chả cá Đà Nẵng 
+ 
 
-Bún chả cá Đà Nẵng (Ảnh ST)
-
-4. Bánh xèo
-Là một món ăn dân gian và xuất hiện nhiều trong danh sách ẩm thực đường phố nên bánh xèo trở nên quen thuộc với rất nhiều người. Bánh xèo được cuốn trong lớp bánh tráng mỏng, ăn kèm rau sống và chấm với nước mắm chua ngọt, ăn vào thấy vừa giòn của lớp vỏ bánh và giá đỗ cùng béo ngậy của thịt và tôm.
-
-Ẩm thực Đà Nẵng: bánh xèo `,
-    short:`Bánh xèo
-Là một món ăn dân gian và xuất hiện nhiều trong danh sách ẩm thực đường phố nên bánh xèo trở nên quen thuộc với rất nhiều người. Bánh xèo được cuốn trong lớp bánh tráng mỏng, ăn kèm rau sống và chấm với nước mắm chua ngọt, ăn vào thấy vừa giòn của lớp vỏ bánh và giá đỗ cùng béo ngậy của thịt và tôm.
-
-Ẩm thực Đà Nẵng: bánh xèo`,
-    image:banhxeo
+CÂY CẦU VÀNG TRÊN ĐỈNH BÀ NÀ HILLS LÊN BÁO CHÍ QUỐC TẾ
+Tờ báo danh tiếng BBC News của Anh đã đăng tin với tựa đề “Cây cầu vàng Việt Nam: dạo bước qua bàn tay vị thần!”. Cũng theo đó, Cây Cầu Vàng liên tục có mặt trên các tờ báo lớn như Buzzfeed – trang tin tức dành cho giới trẻ của Mỹ, Archway – website kiến trúc có lượng truy cập nhiều nhất trên thế giới,  Design Boom – tạp chí điện tử nổi tiếng thế giới về kiến trúc và thiết kế hay Street Art Globle – trang Instagram nghệ thuật nổi tiếng thế giới… Sự xuất hiện của cây cầu vàng trên hàng loạt các kênh truyền thông tên tuổi như vậy chứng tỏ sự độc đáo và sức hút mạnh mẽ của công trình kiến trúc kì vĩ này.`,
+   image: cauvang,
+   short:`Siêu phẩm Cây Cầu Vàng Đà Nẵng trên đỉnh Bà Nà Hill vừa được trình làng thơ mộng khiến cánh báo giới quốc tế không ngớt lời ca ngợi. Với thiết kế vô cùng ấn tượng, hai bàn tay rêu phong to lớn vươn ra từ thân núi nắm lấy tấm lụa vàng lơ lửng giữa trời, tuyệt tác này còn được mọi người nhắc đến với cái tên Cầu Bàn Tay – một trong những địa điểm đẹp sống ảo không thể bỏ qua khi đi du lịch Đà Nẵng.`
+    
     },
+
     {
     id: "1",
-    title: "Mua gì làm quà khi ghé thăm Đà Nẵng",
-    content: `1. Đá mỹ nghệ non nước
-Đá mỹ nghệ từ làng nghề ở Ngũ Hành Sơn chế tác tạo thành rất nhiều đồ lưu  niệm, vật dụng, trang sức. Với kỹ thuật truyền thống lâu năm, quá trình mài giũa tỉ mỉ đã cho ra đời nhiều món đồ tinh xảo, đẹp mắt. Du khách đến đây tham quan có thể mua về làm quà lưu niệm tặng cho bạn bè, người thân đều rất thích hợp.
-
-Đá mỹ nghệ non nước ở Ngũ Hành Sơn 
-
-Đá mỹ nghệ non nước ở Ngũ Hành Sơn (Ảnh ST)
-
-2. Rong biển Mỹ Khê
-Rong biển được làm thành từng miếng dài, thường dùng để chế biến các món như canh, xào, gỏi, nộm,… Với nhiều người rong biển là món khó ăn vì có vị tanh nhưng rong biển có tác dụng làm đẹp da, chống lão hóa và cung cấp vitamin bổ dưỡng cho cơ thể.
-
-Đặc sản Đà Nẵng làm quà: rong biển Mỹ Khê 
-
-Rong biển Mỹ Khê – đặc sản làm quà Đà Nẵng (Ảnh ST)
-
-3. Chả bò Đà Nẵng
-Được chế biến hoàn toàn từ thịt đùi bò tươi, được tẩm ướp theo phương pháp truyền thống rất đậm đà. Chả bò Đà Nẵng hoàn toàn chế biến nguyên chất không pha trộn các loại thịt khác. Mọi người có thể ăn kèm món này với dưa chua, dưa kiệu hoặc cuốn trong bánh tráng. Đừng quên mua làm quà mang về khi đến du lịch Đà Nẵng bạn nhé!
-
-Đặc sản Đà Nẵng làm quà: chả bò 
-
-Chả bò Đà Nẵng (Ảnh ST)
-
-4. Mực khô một nắng
-Mực khô ở đây vẫn mang hương vị mặn mòi của muối biển, của nắng và của gió ngấm trong từng thớ mực. Đến với Đà Nẵng hầu hết các du khách đều mua món này về.
-
-Đặc sản Đà Nẵng làm quà: mực khô một nắng 
-
-
-5. Bánh khô mè
-Thêm một món đặc sản Đà Nẵng mà du khách không thể bỏ qua: khô mè Cẩm Lệ. Được chế biến từ Bánh khô mè từ mía đường, bột nếp, mè, bên ngoài phủ đường non và bột quế, bánh khô mè thoạt nhìn có vẻ giống mè xửng của Huế nhưng khi ăn vào sẽ thấy giòn tan, ngọt, thơm và khô hề dính răng như mè xửng.
-
-Bánh khô mè Đà Nẵng 
-
-
-6. Nem tré Đà Nẵng
-Tré trông rất giống các loại nem như nem chua, nem thính, nem nướng ở Thanh Hóa nhưng có mùi vị khác biệt và đặc trưng không lẫn vào đâu được so với những loại nem ấy. Tré được làm từ thịt ba chỉ, thịt mông, thịt nạc và bì heo, kết hợp với gia vị chính là củ riềng và gói trong lá chuối. Đây là món ăn mà bất cứ ai ghé thăm Đà Nẵng hay miền Trung đều bị cuốn hút bởi độ sần sật, bùi bùi và vị chua đặc trưng.`,
-        image: muckho,
-        short:`Mực khô một nắng
-Mực khô ở đây vẫn mang hương vị mặn mòi của muối biển, của nắng và của gió ngấm trong từng thớ mực. Đến với Đà Nẵng hầu hết các du khách đều mua món này về.
-
-Đặc sản Đà Nẵng làm quà: mực khô một nắng `
-    },
-    // {
-    // id: "2",
-    // title: "",
-    // content: ``,
-    // image: '',
-    // short:``
-    // }
+    title: "Hồ Hòa Trung nằm ở đâu tại Đà Nẵng, có gì khiến giới trẻ bị “mê hoặc” ",
+      content: `
+    Nhắc đến Đà Nẵng, không chỉ có những cây cầu huyền thoại, những bãi biển trong xanh đông nghịt người hay những khu du lịch nổi tiếng. Thành phố sầm uất này còn hấp dẫn du khách và giới trẻ bởi nhiều điểm đến mới lạ. Một trong số đó là Hồ Hòa Trung, nơi sở hữu không gian đẹp tựa như bức tranh thủy mặc. Tới đây bạn có thể cắm trại, hòa mình vào thiên nhiên trong lành và rất nhiều trải nghiệm hấp dẫn khác.  Hồ Hòa Trung là một địa điểm du lịch Đà Nẵng thuộc địa phận 2 xã Hòa Liên và Hòa Ninh, quận Liên Chiểu, cách đường DT602 gần 7 km và cách trung tâm thành phố khoảng 20 km. Đây thực chất vốn là một hồ nước nhân tạo, nguồn cung cấp nước cho trồng trọt và sinh hoạt của người dân 2 xã này. Một nơi tưởng chừng như rất đỗi bình thường lại bỗng chốc trở thành điểm quan tâm hàng đầu của một bộ phận giới trẻ và du khách khi muốn tìm một điểm cắm trại và tổ chức các hoạt động vui chơi ngoài trời. Hồ Hòa Trung nằm trên địa phận 2 xã Hòa Liên và Hòa Ninh. Không phải ngẫu nhiên mà nơi đây lại thu hút đến vậy. Hồ Hòa Trung với những cánh đồng cỏ bạt ngàn, ở giữ là hồ nước rộng, cùng với ánh nắng nhẹ thanh khiết và không khí trong lành,… Tất cả cho bạn cảm giác thanh bình, trở thành nơi lý tưởng để cắm trại, picnic cùng hội bạn, xua tan những mệt mỏi của đời sống thường nhật. Ngoài ra, đây cũng là nơi được nhiều bạn trẻ và các cặp đôi lựa chọn để tạo nên những bộ ảnh lung linh.
+    Nguồn bài viết: https://dulichkhampha24.com/ho-hoa-trung-da-nang.html`,
+    image: hohoatrung,
+    short:`Nhắc đến Đà Nẵng, không chỉ có những cây cầu huyền thoại, những bãi biển trong xanh đông nghịt người hay những khu du lịch nổi tiếng. Thành phố sầm uất này còn hấp dẫn du khách và giới trẻ bởi nhiều điểm đến mới lạ. Một trong số đó là Hồ Hòa Trung, nơi sở hữu không gian đẹp tựa như bức tranh thủy mặc. `
+    }
 
 ],
   all: function() { return this.posts},
