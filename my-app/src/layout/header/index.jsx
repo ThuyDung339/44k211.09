@@ -33,7 +33,9 @@ const Header = () => {
   }
   const logout = () => {
     dispatch(logoutAction())
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
+    // localStorage.removeItem("user-infor");
+    localStorage.clear();
     history.push("/login");
   }
     return (

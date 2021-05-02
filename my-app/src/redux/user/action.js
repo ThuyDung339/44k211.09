@@ -10,8 +10,8 @@ export const getInforUser = createAsyncThunk(
           }
         }).then(res => res.json())
       if (response) {
-        localStorage.setItem('user-infor', response);
-        return response;
+      localStorage.setItem('user-infor',  JSON.stringify(response.data ));
+        return response.data;
       }
       return thunkAPI.rejectWithValue(response);
     } catch (error) {
@@ -34,6 +34,29 @@ export const postCreateGroup = createAsyncThunk(
             }
         }).then(res => res.json())
       if (response) {
+        return response;
+      }
+      return thunkAPI.rejectWithValue(response);
+    } catch (error) {
+      console.log(error,'error')
+      return thunkAPI.rejectWithValue();
+    }
+  },
+);
+
+export const postupdateInforUser = createAsyncThunk(
+  'user/postupdateInforUser',
+    async (payload, thunkAPI) => {
+    try {
+        const response = await fetch('http://localhost:3098/api/user/update', {
+          method: 'POST',
+          body:  JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'application/json',
+            token: `${localStorage.getItem('token')}`
+            }
+        }).then(res => res.json())
+      if (response.message==='SUCCESS') {
         return response;
       }
       return thunkAPI.rejectWithValue(response);

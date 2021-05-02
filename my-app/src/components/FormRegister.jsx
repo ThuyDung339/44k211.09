@@ -6,7 +6,7 @@ import logo from './../assets/images/logo.png';
 
 const FormRegister = ({ handleSubmit }) => {
 
-  const initialValues = { email: '', password: '', first_name: '' };
+  const initialValues = { email: '', password: '', firstname: '' };
   
 
    return (
@@ -24,7 +24,7 @@ const FormRegister = ({ handleSubmit }) => {
           password: Yup.string()
             .max(10)
                 .required("Password is required"),
-          first_name: Yup.string()
+          firstname: Yup.string()
             .required("Name is required"),          
         })}
 >
@@ -40,7 +40,7 @@ const FormRegister = ({ handleSubmit }) => {
           } = props;
           return (
             <form className="form-auth" onSubmit={handleSubmit}>
-              {/* <label htmlFor="first_name" style={{ display: "block" }}>
+              {/* <label htmlFor="firstname" style={{ display: "block" }}>
                 Name
               </label> */}
               <div className='logo'>
@@ -48,20 +48,20 @@ const FormRegister = ({ handleSubmit }) => {
               </div>
                <div>
               <input
-                id="first_name"
+                id="firstname"
                 placeholder="Enter your username"
                 type="text"
-                value={values.first_name}
+                value={values.firstname}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={
-                  errors.first_name && touched.first_name
+                  errors.firstname && touched.firstname
                     ? "text-input error"
                     : "text-input"
                 }
               />
-              {errors.first_name && touched.first_name && (
-                <div className="input-feedback">{errors.first_name}</div>
+              {errors.firstname && touched.firstname && (
+                <div className="input-feedback">{errors.firstname}</div>
               )}                
               {/* <label htmlFor="email" style={{ display: "block" }}>
                 Email

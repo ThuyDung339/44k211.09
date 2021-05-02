@@ -12,7 +12,8 @@ const { reducer } = createSlice({
   reducers: {
   },
   extraReducers: {
-    [getInforUser.fulfilled]: state => {
+    [getInforUser.fulfilled]: (state, { payload }) => {
+      state.inforUser=payload
     },
     [getInforUser.rejected]: state => {
     },
