@@ -9,6 +9,7 @@ import Home from '../../containers/users/Home';
 import PostTravelDetail from '../../components/postTravelDetail'
 import PostCuisineDetail from '../../components/postCuisineDetail'
 import './../style.css'
+import {InforUser }from '../../components/InforUser';
 export default function Main() {
     return (
       <div className='main'>
@@ -17,7 +18,7 @@ export default function Main() {
             <RomChat/>
           </Route>
           <Route exact path="/infor-user">
-            <p>user</p>
+             <InforUser />
           </Route>
           <Route exact path="/">
             <Home/>

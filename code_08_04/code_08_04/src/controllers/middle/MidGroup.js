@@ -33,6 +33,7 @@ class MidGroup {
     }
 
     async addGroup(data) {
+        data.del = 0;
         let newGroup = await Group.create(data);
         if (newGroup) {
             UserGroup.create({
@@ -88,8 +89,16 @@ class MidGroup {
             }
         }
 
+        let includeOpt = [
+        {
+            association: "user_group",
+            required: true,
+            where: { del: 0 },
+        }];
+
         return Group.findAndCountAll({
-            where: condition
+            where: condition,
+            include: includeOpt
         });
     }
 
