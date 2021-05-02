@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getInforUser } from './action';
 
 export const initialState = {
-    a: false,
     pending: false,
 
 };

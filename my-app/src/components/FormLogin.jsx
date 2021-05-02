@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import ForgotPassword from './ForgotPassword';
+import { useDispatch, useSelector } from 'react-redux'
+import { message } from 'antd';
+import 'antd/dist/antd.css';
 import './style.css';
 import logo from './../assets/images/logo.png';
 const FormLogin = ({ handleSubmit }) => {
@@ -18,7 +21,7 @@ const FormLogin = ({ handleSubmit }) => {
         initialValues={initialValues}
         onSubmit={(values, actions) => {
            actions.setSubmitting(false);
-           handleSubmit(values)
+          handleSubmit(values)
          }}
         validationSchema={Yup.object().shape({
           email: Yup.string().required("Email is required").email('Invalid email'),
@@ -84,8 +87,8 @@ const FormLogin = ({ handleSubmit }) => {
               <button type="submit" disabled={isSubmitting} className='submit-auth'>
                 Đăng nhập
               </button>
-                <p style={{ cursor: 'pointer', color: "#007eff" }} onClick={fforgot}>Forgot  your password?</p>
-                 <div><span>Chưa có tài khoản?</span><a>Đăng kí</a></div>
+                {/* <p style={{ cursor: 'pointer', color: "#007eff" }} onClick={fforgot}>Forgot  your password?</p> */}
+                 <div><span>Chưa có tài khoản?</span><a href='/register'>Đăng kí</a></div>
                 </div>
             </form>
           );

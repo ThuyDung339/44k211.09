@@ -3,29 +3,21 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import './style.css';
 import logo from './../assets/images/logo.png';
-import Axios from 'axios'
 
 const FormRegister = ({ handleSubmit }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [first_name, setUserName] = useState('');
+
   const initialValues = { email: '', password: '', first_name: '' };
   
-  const registerHandle = () => {
-    if (!email || !password || !first_name) {
-      return alert("e tao mot cai alert o day de canh bao loi nhe")
-    }
 
-    Axios.get('http://localhost:3098/api/user/register', {email, password, first_name})
-  }
-  
    return (
      <div className="formik-auth">
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
            actions.setSubmitting(false);
-           handleSubmit(values)
+          handleSubmit(values)
+          
+          
          }}
         validationSchema={Yup.object().shape({
           email: Yup.string().required("Email is required").email('Invalid email'),
@@ -44,7 +36,7 @@ const FormRegister = ({ handleSubmit }) => {
             isSubmitting,
             handleChange,
             handleBlur,
-            handleSubmit,
+            handleSubmit
           } = props;
           return (
             <form className="form-auth" onSubmit={handleSubmit}>

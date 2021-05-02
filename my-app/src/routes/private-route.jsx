@@ -1,21 +1,20 @@
-import React,{useEffect} from "react";
+import React, {useEffect} from "react";
 import { Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
-import {getInforUser} from '../redux/user/action'
+import { Login } from "../containers/auth/Login";
 import UserPage from '../layout/index'
-//import MiniDrawer from "../layout/main/index";
+import {useSelector } from 'react-redux'
 function PrivateRoute() {
-  const dispatch = useDispatch();
-  const userInfor = useSelector(state => state.user.userInfor);
-  useEffect(() => {
-  dispatch(getInforUser())
-  }, []);
-  console.log(userInfor,'nè nè')
-    if (!localStorage.getItem("token")) {
-      return <Redirect to={"/login"} />;
-    }
-    return <UserPage/>
+  const isAuthenticated = useSelector(state => state.authenticate.isAuthenticated);
+  const token = localStorage.getItem("token");
   
+  return <>
+    {isAuthenticated?
+      <UserPage />
+       :
+      <Redirect exact
+        to="/login" component={ Login}/>
+    }
+    </>
 }
 export default PrivateRoute;
 

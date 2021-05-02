@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { logoutAction} from '../../redux/auth/action';
 import logo from '../../assets/images/logo.png';
 import '../style.css';
 import {
@@ -25,10 +27,12 @@ const menu = (
 );
 const Header = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const handleClick = function () {
       history.push("/infor-user");
   }
-  const logout = function () {
+  const logout = () => {
+    dispatch(logoutAction())
     localStorage.removeItem("token");
     history.push("/login");
   }
@@ -42,12 +46,12 @@ const Header = () => {
                <button><SearchOutlined/></button> 
             </div>
             <div className='icon'>
-                <UserOutlined onClick={handleClick} style={{ backgroundColor: "rgb(67, 146, 236)" }} />
+                <UserOutlined onClick={() => handleClick()} style={{ backgroundColor: "rgb(67, 146, 236)" }} />
                 <Dropdown overlay={menu} placement="bottomCenter">
                   <CompassOutlined style={{ backgroundColor: "rgb(12, 145, 56)" }} />
                 </Dropdown>                
                 <MessageOutlined  style={{ backgroundColor: "rgb(233, 97, 19)"}} />
-                <LogoutOutlined onClick={logout} style={{ backgroundColor: "rgb(40, 55, 73)" }} />
+                <LogoutOutlined  href="/login" onClick={() => logout()} style={{ backgroundColor: "rgb(40, 55, 73)" }} />
             </div>            
         </div>
     )

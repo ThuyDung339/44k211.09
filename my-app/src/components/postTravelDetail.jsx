@@ -7,7 +7,6 @@ const PostTravelDetail = (props) => {
   const post = PostAPI.get(
    props.match.params.id
   )
-  console.log(post,'post nef')
   if (!post) {
     return <div>Sorry, but the posts was not found</div>
   }

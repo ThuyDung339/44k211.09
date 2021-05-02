@@ -1,19 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login } from './action';
+import { login,logoutAction,Register, registerActionRedirect } from './action';
 
 export const initialState = {
   isAuthenticated: !!localStorage.getItem('token'),
   // isAuthenticated: true,
-  dataUser: {
-    _id: '',
-    email: '',
-    password:''
-  },
   role: null,
   loginError: false,
   loginSuccess: false,
   permissionData: null,
-  pending: false
+  pending: false,
+  isRegisterSuccess:false
 };
 
 const { reducer } = createSlice({
@@ -22,15 +18,32 @@ const { reducer } = createSlice({
   reducers: {
   },
   extraReducers: {
-    [login.fulfilled]: state => {
+    [login.fulfilled]: (state, { payload})  => {
       state.isAuthenticated = true
     },
-    [login.rejected]: state => {
+    [login.rejected]: (state,{payload})=> {
       state.isAuthenticated = false
+      state.pending = false
+      state.messageError= payload.message
     },
     [login.pending]: state => {
       state.pending = true
-    }
+    },
+    [logoutAction.fulfilled]: (state, { payload }) => {
+      state.isAuthenticated = false
+      state.pending = false  
+    },
+    [Register.rejected]: (state,{payload})=> {
+      state.isAuthenticated = false
+      state.pending = false
+    },
+    [Register.fulfilled]: (state,{payload})=> {
+      state.isAuthenticated = false
+      state.isRegisterSuccess= true
+    },
+    [registerActionRedirect.fulfilled]: (state,{payload})=> {
+      state.isRegisterSuccess= false
+    },    
   }
 });
 
