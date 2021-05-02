@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router';
-import { Row, Col, Button, Modal } from "antd";
+import { Row, Col, Button, Modal, Popconfirm } from "antd";
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteGroupChat } from '../redux/user/action';
 import { DeleteOutlined,EditOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
 export default function ListRoom(props) {
+  const dispatch = useDispatch();
   const { listRoomChat } = props;
   const history = useHistory();
   const inforUser = JSON.parse(localStorage.getItem('user-infor'));
@@ -54,6 +57,10 @@ export default function ListRoom(props) {
   console.log(listRoomChat, 'có gì nào')
   // so sánh với id của userinfor
   console.log(inforUser, 'if')
+  function confirm(id) {
+    console.log(id);
+    dispatch(deleteGroupChat(id));
+}
   return (
     <div className='list-room'>
       <Row className='row-roomchat' gutter={[48, 24]}>
@@ -64,7 +71,11 @@ export default function ListRoom(props) {
               <h4 style={{ "font-weight": "bold" }}>{data.name}</h4>
               {(inforUser && data.owner_id === inforUser.id) &&
                 <div>
-                  <DeleteOutlined />
+                <Popconfirm title="Are you sure？" okText="Yes" cancelText="No"
+                    onConfirm={()=>confirm(data.id)}
+                >
+                      <DeleteOutlined />
+                    </Popconfirm>
                   <EditOutlined />
               </div>
               }

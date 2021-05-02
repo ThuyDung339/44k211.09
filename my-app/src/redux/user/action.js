@@ -72,3 +72,31 @@ export const postupdateInforUser = createAsyncThunk(
     }
   },
 );
+export const  deleteGroupChat= createAsyncThunk(
+  'user/postupdateInforUser',
+    async (payload, thunkAPI) => {
+    try {
+        const response = await fetch(`http://localhost:3098/api/group/delete?id=${payload}`, {
+          method: 'GET',
+          // body:  JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'application/json',
+            token: `${localStorage.getItem('token')}`
+            }
+        }).then(res => res.json())
+      // if (response.message === 'SUCCESS') {
+      //     const messSuccess = () => {
+      //       message.success('Update success');
+            
+      //      };
+      //   messSuccess();        
+      //   return response;
+      // }
+      console.log(response,'đcko á')
+      return thunkAPI.rejectWithValue(response);
+    } catch (error) {
+      console.log(error,'error')
+      return thunkAPI.rejectWithValue();
+    }
+  },
+);
