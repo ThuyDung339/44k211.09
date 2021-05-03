@@ -87,7 +87,6 @@ export const  deleteGroupChat= createAsyncThunk(
       if (response.message === 'SUCCESS') {
           const messSuccess = () => {
             message.success('Delete success');
-            
            };
         messSuccess();        
         return response;

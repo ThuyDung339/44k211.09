@@ -48,12 +48,6 @@ const layout = {
         <Form.Item
           label="Username"
           name="firstname"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your username!',
-            },
-          ]}
         >
           <Input />
         </Form.Item>
@@ -61,10 +55,6 @@ const layout = {
           label="Phone"
           name="phone"
           rules={[
-            {
-              required: true,
-              message: 'Please input your phone!',
-            },
             {
               maxLength: 11,
               message: 'Phone should be less than 11 character!',
@@ -76,12 +66,6 @@ const layout = {
         <Form.Item
           label="Address"
           name="address"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your address!',
-            },
-          ]}
         >
           <Input />
         </Form.Item>        

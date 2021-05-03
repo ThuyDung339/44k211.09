@@ -163,7 +163,13 @@ export const CollectionCreateForm = ({ visible, onCreate, onCancel , data}) => {
           ]}>          
           <TimePicker  />
         </Form.Item>        
-        <Form.Item>
+        <Form.Item
+          rules={[
+            {
+              required: true,
+              message: 'Please choose time',
+            },
+          ]}> 
           <Demo fileList={fileList} onChangeImg={onChangeImg} onPreview={onPreview} imageUpdate={data.image }/>
         </Form.Item>
       </Form>
