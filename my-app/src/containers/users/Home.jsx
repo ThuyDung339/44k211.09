@@ -5,7 +5,7 @@ import { Button, Modal, Form, Input, DatePicker, Upload, InputNumber, TimePicker
 import ImgCrop from "antd-img-crop";
 import ListRoom from '../../components/ListRoom';
 import { useDispatch, useSelector } from 'react-redux'
-import {  getInforUser, postCreateGroup as createGroupAction , getRoomAction, postCreateGroup } from '../../redux/user/action';
+import {  getInforUser, getRoomAction, postCreateGroup } from '../../redux/user/action';
 import moment from 'moment';
 import 'antd/dist/antd.css';
 import './style.css';
@@ -147,8 +147,7 @@ export const CollectionsPage = (props) => {
   const { getRoom } = props;
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
-  const onCreate = (values) => { 
-        console.log(values, 'values') 
+  const onCreate = (values) => {  
     const date = values?.date || '';
     const hour = values?.time || '';
     let formData = new FormData();
@@ -163,7 +162,6 @@ export const CollectionsPage = (props) => {
     formData.append("address", values.address);
     formData.append("quantity", values.quantity);
     formData.append("name", values.name);
-    console.log('formData', formData)
 
     Axios.post(`http://localhost:3098/api/group/add`,formData, {
       headers: {
@@ -171,7 +169,6 @@ export const CollectionsPage = (props) => {
         token: `${localStorage.getItem('token')}`
       }
     }).then((data) => {
-      console.log('data', data);
       getRoom();
     })
       .catch(err => {
@@ -209,11 +206,11 @@ export default function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getInforUser());
-     dispatch(getRoomAction());
+     dispatch(getRoomAction(''));
   }, []);
 
   const getRoom = () => {
-    dispatch(getRoomAction());
+    dispatch(getRoomAction(''));
   }
     return (
         <div className='home'>

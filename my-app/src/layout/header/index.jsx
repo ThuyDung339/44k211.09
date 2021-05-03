@@ -1,16 +1,17 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { logoutAction} from '../../redux/auth/action';
+import { logoutAction } from '../../redux/auth/action';
+import {getRoomAction } from '../../redux/user/action';
 import logo from '../../assets/images/logo.png';
 import '../style.css';
 import {
     LogoutOutlined,
     UserOutlined,
-    MessageOutlined,
-    SearchOutlined, CompassOutlined
+    MessageOutlined,CompassOutlined
 } from '@ant-design/icons';
 import { Input,Menu, Dropdown } from 'antd';
 import { useHistory } from 'react-router';
+const { Search } = Input;
 const menu = (
   <Menu>
     <Menu.Item>
@@ -31,10 +32,11 @@ const Header = () => {
   const handleClick = function () {
       history.push("/infor-user");
   }
+  const onSearch = (value) => {
+    dispatch(getRoomAction(value));
+  }
   const logout = () => {
     dispatch(logoutAction())
-    // localStorage.removeItem("token");
-    // localStorage.removeItem("user-infor");
     localStorage.clear();
     history.push("/login");
   }
@@ -45,11 +47,9 @@ const Header = () => {
                   <img src={logo} alt="logo" style={{ width: "100px" }} />
                  </a>
             </div>
-            <div className='search-header'>
-               <Input placeholder='Tìm kiếm' />
-               <button><SearchOutlined/></button> 
+             <div className='search-header'><Search placeholder="Tìm kiếm" onSearch={onSearch} enterButton />
             </div>
-            <div className='icon'>
+        <div className='icon'>
                 <UserOutlined onClick={() => handleClick()} style={{ backgroundColor: "rgb(67, 146, 236)" }} />
                 <Dropdown overlay={menu} placement="bottomCenter">
                   <CompassOutlined style={{ backgroundColor: "rgb(12, 145, 56)" }} />

@@ -4,7 +4,7 @@ import React, { useState , useEffect} from 'react';
 import {  Modal, Form, Input, DatePicker, Upload, InputNumber, TimePicker } from 'antd';
 import ImgCrop from "antd-img-crop";
 import { useDispatch, useSelector } from 'react-redux'
-import {  postCreateGroup as createGroupAction } from '../redux/user/action';
+import {  postCreateGroup as createGroupAction, getRoomAction } from '../redux/user/action';
 import { EditOutlined } from '@ant-design/icons';
 import Axios from 'axios';
 import moment from 'moment';
@@ -177,7 +177,6 @@ export const EditGroupChat = ({data}) => {
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   const onCreate = (values) => { 
-        console.log(values, 'values') 
     const date = values?.date || '';
     const hour = values?.time || '';
     let formData = new FormData();
@@ -189,20 +188,18 @@ export const EditGroupChat = ({data}) => {
       )}`,
       'DD-MM-YYYY HH:mm:ss',
     ).toISOString());
-    console.log(values,'value nhé')
     formData.append("id", values.id);
     formData.append("address", values.address);
     formData.append("quantity", values.quantity);
     formData.append("name", values.name);
-  //  console.log('formData', formData)
-    
-        Axios.put(`http://localhost:3098/api/group/update`,formData, {
+
+      Axios.put(`http://localhost:3098/api/group/update`,formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         token: `${localStorage.getItem('token')}`
       }
     }).then((data) => {
-      console.log('data', data);
+      dispatch(getRoomAction(''));
     })
       .catch(err => {
         console.log('err', err);

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteGroupChat, getRoomAction } from '../redux/user/action';
 import { DeleteOutlined } from '@ant-design/icons';
 import { EditGroupChat } from './EditGroupChat';
+import Axios from 'axios';
 import 'antd/dist/antd.css';
 
 export default function ListRoom(props) {
@@ -29,7 +30,7 @@ export default function ListRoom(props) {
     setShowConfirm(false);
   }
   useEffect(() => {
-    dispatch(getRoomAction());
+    dispatch(getRoomAction(''));
   }, []);
   const formatTime = (time) => {
     if (!time) return '';
@@ -61,8 +62,18 @@ export default function ListRoom(props) {
     );
 }
   function confirm(id) {
-    console.log(id);
-    dispatch(deleteGroupChat(id));
+ //   dispatch(deleteGroupChat(id));
+     Axios.get(`http://localhost:3098/api/group/delete?id=${id}`, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        token: `${localStorage.getItem('token')}`
+      }
+    }).then((data) => {
+      dispatch(getRoomAction(''));
+    })
+      .catch(err => {
+        console.log('err', err);
+    })
 }
   return (
     <div className='list-room'>

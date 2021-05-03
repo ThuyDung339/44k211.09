@@ -11,7 +11,6 @@ export default function RomChat() {
     return dbfirebase.collection('cccc').onSnapshot((snapshot) => {
       const postData = [];
       snapshot.forEach((doc) => postData.push({ ...doc.data(), id: doc.id }));
-      console.log(postData, 'hehe');  // <------
       setConversation(postData);
     });
 

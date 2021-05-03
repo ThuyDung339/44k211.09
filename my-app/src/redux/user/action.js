@@ -84,15 +84,14 @@ export const  deleteGroupChat= createAsyncThunk(
             token: `${localStorage.getItem('token')}`
             }
         }).then(res => res.json())
-      // if (response.message === 'SUCCESS') {
-      //     const messSuccess = () => {
-      //       message.success('Update success');
+      if (response.message === 'SUCCESS') {
+          const messSuccess = () => {
+            message.success('Delete success');
             
-      //      };
-      //   messSuccess();        
-      //   return response;
-      // }
-      console.log(response,'đcko á')
+           };
+        messSuccess();        
+        return response;
+      }
       return thunkAPI.rejectWithValue(response);
     } catch (error) {
       console.log(error,'error')
@@ -104,7 +103,7 @@ export const getRoomAction = createAsyncThunk(
   'user/getRoom',
     async (payload, thunkAPI) => {
     try {
-      const response = await fetch('http://localhost:3098/api/group/getAll', {
+      const response = await fetch(`http://localhost:3098/api/group/getAll/?address=${payload}`, {
         method: 'GET',
         headers: {
           token: `${localStorage.getItem('token')}`
