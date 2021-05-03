@@ -10,7 +10,7 @@ export default class Group extends BaseModel {
     static association() {
         Group.hasMany(UserGroup, { as: 'user_group', foreignKey: 'group_id' })
         Group.belongsTo(User, { as: 'owner_group', foreignKey: 'owner_id' })
-    }
+     }
 }
 
 const attributes = {

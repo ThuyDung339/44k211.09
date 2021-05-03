@@ -14,10 +14,13 @@ export default function ListRoom(props) {
   const handleJoin = function () {
     history.push('/chat/id')
   }
-
+  const handleJoinAndCallApi = function () {
+    
+    history.push('/chat/id')
+  }
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const onClickShowConfirm = () => {
+  const onClickShowConfirmJoin = () => {
     setShowConfirm(true);
   }
 
@@ -90,8 +93,15 @@ export default function ListRoom(props) {
             }} />
           <div>Số lượng :{ data.quantity}</div>
           <div>Địa điểm :{ data.address}</div>
-          <div>Thời gian :{formatTime(data.time)}</div>
-           <Button className='join' onClick={() => onClickShowConfirm()}>Tham gia</Button>
+            <div>Thời gian :{formatTime(data.time)}</div>
+            <div>Số thành viên hiện tại: { data.user_group.length}</div>
+            {data.user_group.map(item => (
+                 // if else chộ này nếu trùng thì bấm chat,ko thì bấm tham gia nè
+              (item?.user_id===inforUser?.id) ? <Button className='join' onClick={() => handleJoin()}>Chat</Button> :
+                <Button className='join' onClick={() => onClickShowConfirmJoin()}>Tham gia</Button>
+            ))}
+
+           {/* <Button className='join' onClick={() => onClickShowConfirm()}>Tham gia</Button> */}
         </div>
         </Col>
     ))}  
@@ -100,7 +110,7 @@ export default function ListRoom(props) {
         visible={showConfirm}
         footer={
           <>
-          <button onClick={() => handleJoin()}>
+          <button onClick={() => handleJoinAndCallApi()}>
               Đồng ý
           </button>
             <button onClick={() => onClickHideConfirm()}>
