@@ -73,7 +73,7 @@ export const postupdateInforUser = createAsyncThunk(
   },
 );
 export const  deleteGroupChat= createAsyncThunk(
-  'user/postupdateInforUser',
+  'user/deleteGroupChat',
     async (payload, thunkAPI) => {
     try {
         const response = await fetch(`http://localhost:3098/api/group/delete?id=${payload}`, {
@@ -93,6 +93,27 @@ export const  deleteGroupChat= createAsyncThunk(
       //   return response;
       // }
       console.log(response,'đcko á')
+      return thunkAPI.rejectWithValue(response);
+    } catch (error) {
+      console.log(error,'error')
+      return thunkAPI.rejectWithValue();
+    }
+  },
+);
+export const getRoomAction = createAsyncThunk(
+  'user/getRoom',
+    async (payload, thunkAPI) => {
+    try {
+      const response = await fetch('http://localhost:3098/api/group/getAll', {
+        method: 'GET',
+        headers: {
+          token: `${localStorage.getItem('token')}`
+          }
+        }).then(res => res.json())
+      if (response && response.data) {
+       // localStorage.setItem('user-infor',  JSON.stringify(response.data ));
+        return response.data;
+      }
       return thunkAPI.rejectWithValue(response);
     } catch (error) {
       console.log(error,'error')

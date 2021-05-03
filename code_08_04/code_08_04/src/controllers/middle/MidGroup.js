@@ -77,7 +77,7 @@ class MidGroup {
         return false;
     }
 
-    async getAllGroup(group_name) {
+    async getAllGroup(group_name, address) {
 
         let condition = {
             del: 0
@@ -88,6 +88,13 @@ class MidGroup {
                 [Op.like]: `%${group_name}%`
             }
         }
+
+        if (address) {
+            condition.address = {
+                [Op.like]: `%${address}%`
+            }
+        }
+
 
         let includeOpt = [
             {

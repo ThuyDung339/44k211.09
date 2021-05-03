@@ -35,8 +35,8 @@ class GroupController {
     }
 
     async getAllGroup(req, res) {
-        const { group_name } = req.query;
-        return await MidGroup.getAllGroup(group_name);
+        const { group_name, address} = req.query;
+        return await MidGroup.getAllGroup(group_name, address);
     }
 
     async userRergisterGroup(req, res) {

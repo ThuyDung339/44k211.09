@@ -1,15 +1,15 @@
 
 
 import React, { useState , useEffect} from 'react';
-import { Button, Modal, Form, Input, DatePicker, Upload, InputNumber, TimePicker } from 'antd';
+import {  Modal, Form, Input, DatePicker, Upload, InputNumber, TimePicker } from 'antd';
 import ImgCrop from "antd-img-crop";
-import ListRoom from '../../components/ListRoom';
 import { useDispatch, useSelector } from 'react-redux'
-import {  getInforUser, postCreateGroup as createGroupAction , getRoomAction, postCreateGroup } from '../../redux/user/action';
+import {  postCreateGroup as createGroupAction } from '../redux/user/action';
+import { EditOutlined } from '@ant-design/icons';
+import Axios from 'axios';
 import moment from 'moment';
 import 'antd/dist/antd.css';
 import './style.css';
-import Axios from 'axios';
 
 
 const Demo = ({ fileList, onChangeImg , onPreview}) => {
@@ -29,9 +29,16 @@ const Demo = ({ fileList, onChangeImg , onPreview}) => {
     </ImgCrop>
   );
 };
-export const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
+export const CollectionCreateForm = ({ visible, onCreate, onCancel , data}) => {
   const [form] = Form.useForm();
-  const [fileList, setFileList] = useState([]);
+  const [fileList, setFileList] = useState([
+          {
+        uid: '-1',
+        name: 'image.png',
+        status: 'done',
+        url: data?.image||'',
+      },
+  ]);
   const onChangeImg = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   }
@@ -51,14 +58,16 @@ export const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
   };
   React.useEffect(() => {
     form.setFieldsValue({
-      quantity:1
+      quantity: 1,
+      id:data?.id,
     })    
-  }, [])  
+  }, [])
+  const dataRoomchatById = data;
   return (
     <Modal
       visible={visible}
-      title="Create a new group"
-      okText="Create"
+      title="Edit a group"
+      okText="Edit"
       cancelText="Cancel"
       onCancel={onCancel}
       onOk={() => {
@@ -78,8 +87,28 @@ export const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
         layout="vertical"
         title="form_in_modal"
         initialValues={{
-        }}
+          id:dataRoomchatById?.id,
+          name: dataRoomchatById?.name,
+          address: dataRoomchatById?.address,
+          quantity: dataRoomchatById?.quantity,
+          //2021-05-24T17:00:07.000Z
+          date: moment(dataRoomchatById?.time),
+          time: moment(dataRoomchatById?.time)
+        }
+       || {}}
       >
+        <Form.Item
+          name="id"
+           hidden={true}
+          rules={[
+            {
+              required: true,
+              message: 'Please input the name group',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>          
         <Form.Item
           name="name"
           label="Tên nhóm"
@@ -114,7 +143,7 @@ export const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
             },
           ]}
         >
-          <InputNumber min={1}  defaultValue={1}  />
+          <InputNumber min={1}  />
         </Form.Item>        
         <Form.Item name="date" label="Thời gian"
             rules={[
@@ -135,7 +164,7 @@ export const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
           <TimePicker  />
         </Form.Item>        
         <Form.Item>
-          <Demo fileList={fileList} onChangeImg={onChangeImg} onPreview={onPreview}/>
+          <Demo fileList={fileList} onChangeImg={onChangeImg} onPreview={onPreview} imageUpdate={data.image }/>
         </Form.Item>
       </Form>
     </Modal>
@@ -143,8 +172,8 @@ export const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
 };
 
 
-export const CollectionsPage = (props) => {
-  const { getRoom } = props;
+export const EditGroupChat = ({data}) => {
+
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   const onCreate = (values) => { 
@@ -160,67 +189,42 @@ export const CollectionsPage = (props) => {
       )}`,
       'DD-MM-YYYY HH:mm:ss',
     ).toISOString());
+    console.log(values,'value nhé')
+    formData.append("id", values.id);
     formData.append("address", values.address);
     formData.append("quantity", values.quantity);
     formData.append("name", values.name);
-    console.log('formData', formData)
-
-    Axios.post(`http://localhost:3098/api/group/add`,formData, {
+  //  console.log('formData', formData)
+    
+        Axios.put(`http://localhost:3098/api/group/update`,formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         token: `${localStorage.getItem('token')}`
       }
     }).then((data) => {
       console.log('data', data);
-      getRoom();
     })
       .catch(err => {
         console.log('err', err);
     })
     // dispatch(postCreateGroup());
     setVisible(false);
-    
   };
 
   return (
-    <div>
-      <Button
-        type="primary"
-        onClick={() => {
+    <>
+      <EditOutlined onClick={() => {
           setVisible(true);
-        }}
-      >
-        Tạo nhóm
-      </Button>
+        }}/>
       <CollectionCreateForm
         visible={visible}
+        data={data}
         onCreate={onCreate}
         onCancel={() => {
           setVisible(false);
         }}
       />
-    </div>
+    </>
   );
 };
 
-
-export default function Home() {
-  const listRoomChat = useSelector(state => state.user.listRoomChat);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getInforUser());
-     dispatch(getRoomAction());
-  }, []);
-
-  const getRoom = () => {
-    dispatch(getRoomAction());
-  }
-    return (
-        <div className='home'>
-            <div className="create-btn-wrapper">
-          <CollectionsPage getRoom={getRoom}/>
-            </div>
-            <ListRoom listRoomChat={listRoomChat} />           
-        </div>
-    )
-}

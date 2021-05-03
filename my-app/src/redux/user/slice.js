@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getInforUser } from './action';
+import { getInforUser,getRoomAction } from './action';
 
 export const initialState = {
-    pending: false,
+  pending: false,
+  listRoomchat:[],
 
 };
 
@@ -19,7 +20,10 @@ const { reducer } = createSlice({
     },
     [getInforUser.pending]: state => {
       state.pending = true
-    }
+    },
+    [getRoomAction.fulfilled]: (state, { payload }) => {
+      state.listRoomchat=payload?.rows
+    },
   }
 });
 

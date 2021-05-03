@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import { Row, Col, Button, Modal, Popconfirm } from "antd";
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteGroupChat } from '../redux/user/action';
-import { DeleteOutlined,EditOutlined } from '@ant-design/icons';
+import { deleteGroupChat, getRoomAction } from '../redux/user/action';
+import { DeleteOutlined } from '@ant-design/icons';
+import { EditGroupChat } from './EditGroupChat';
 import 'antd/dist/antd.css';
 
 export default function ListRoom(props) {
   const dispatch = useDispatch();
-  const { listRoomChat } = props;
+  const listRoomChat = useSelector(state => state.user.listRoomchat)
   const history = useHistory();
   const inforUser = JSON.parse(localStorage.getItem('user-infor'));
   const handleJoin = function () {
     history.push('/chat/id')
   }
   const handleJoinAndCallApi = function () {
-    
+
     history.push('/chat/id')
   }
   const [showConfirm, setShowConfirm] = useState(false);
@@ -27,7 +28,9 @@ export default function ListRoom(props) {
   const onClickHideConfirm = () => {
     setShowConfirm(false);
   }
-
+  useEffect(() => {
+    dispatch(getRoomAction());
+  }, []);
   const formatTime = (time) => {
     if (!time) return '';
     let d = new Date(time);
@@ -57,9 +60,6 @@ export default function ListRoom(props) {
         curr_year
     );
 }
-  console.log(listRoomChat, 'có gì nào')
-  // so sánh với id của userinfor
-  console.log(inforUser, 'if')
   function confirm(id) {
     console.log(id);
     dispatch(deleteGroupChat(id));
@@ -79,7 +79,8 @@ export default function ListRoom(props) {
                 >
                       <DeleteOutlined />
                     </Popconfirm>
-                  <EditOutlined />
+                {/* <EditOutlined /> */}
+                <EditGroupChat data={data} />
               </div>
               }
             </div>
