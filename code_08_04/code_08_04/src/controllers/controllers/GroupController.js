@@ -41,6 +41,7 @@ class GroupController {
 
     async userRergisterGroup(req, res) {
         let { userData } = req;
+        console.log('234', userData.id)
         if (!userData) throw new Error('Tài khoản không hợp lệ');
 
         const { group_id } = req.body;

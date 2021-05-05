@@ -9,21 +9,36 @@ import Axios from 'axios';
 import 'antd/dist/antd.css';
 
 export default function ListRoom(props) {
+  console.log(props, 'props...');
   const dispatch = useDispatch();
   const listRoomChat = useSelector(state => state.user.listRoomchat)
   const history = useHistory();
+  const [idGroup, setIdGroup] = useState('');
   const inforUser = JSON.parse(localStorage.getItem('user-infor'));
   const handleJoin = function () {
     history.push('/chat/id')
   }
-  const handleJoinAndCallApi = function () {
-
-    history.push('/chat/id')
+  const handleJoinAndCallApi = function (id) {
+    console.log(' id',id)
+    Axios.post(`http://localhost:3098/api/group/register`, {
+      group_id: id
+    }, {
+      headers: {
+        token: `${localStorage.getItem('token')}`
+      }
+    }).then((data) => {
+      console.log(data, 'dât ')
+          history.push('/chat/id')
+    })
+      .catch(err => {
+        console.log('err', err);
+    })
   }
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const onClickShowConfirmJoin = () => {
+  const onClickShowConfirmJoin = (id) => {
     setShowConfirm(true);
+    setIdGroup(id);
   }
 
   const onClickHideConfirm = () => {
@@ -106,23 +121,23 @@ export default function ListRoom(props) {
           <div>Số lượng :{ data.quantity}</div>
           <div>Địa điểm :{ data.address}</div>
             <div>Thời gian :{formatTime(data.time)}</div>
-            <div>Số thành viên hiện tại: { data.user_group.length}</div>
-            {data.user_group.map(item => (
-                 // if else chộ này nếu trùng thì bấm chat,ko thì bấm tham gia nè
-              (item?.user_id===inforUser?.id) ? <Button className='join' onClick={() => handleJoin()}>Chat</Button> :
-                <Button className='join' onClick={() => onClickShowConfirmJoin()}>Tham gia</Button>
-            ))}
+            <div>Số thành viên hiện tại: {data.user_group.length}</div>
+            {data && data.user_group && data.user_group.findIndex(item => inforUser && item.user_id ===inforUser.id) > -1 ?
+           <Button className='join' onClick={() => handleJoin()}>Chat</Button> :
+                <Button className='join' onClick={() => onClickShowConfirmJoin(data.id)}>Tham gia</Button>
+            }
 
            {/* <Button className='join' onClick={() => onClickShowConfirm()}>Tham gia</Button> */}
-        </div>
+          </div>
         </Col>
+
     ))}  
       </Row>
       <Modal
         visible={showConfirm}
         footer={
           <>
-          <button onClick={() => handleJoinAndCallApi()}>
+          <button onClick={() => handleJoinAndCallApi(idGroup)}>
               Đồng ý
           </button>
             <button onClick={() => onClickHideConfirm()}>

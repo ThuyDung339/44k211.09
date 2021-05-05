@@ -3,10 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Widget, addResponseMessage, addLinkSnippet, addUserMessage } from 'react-chat-widget';
 import dbfirebase  from "../firebase"
 import 'react-chat-widget/lib/styles.css';
-import { Button, Input } from 'antd';
+import { Button, Input ,Form} from 'antd';
 
 export default function RomChat() {
-  //addUserMessage còn cái này chưa dùng nữa
   useEffect(() => {
     return dbfirebase.collection('cccc').onSnapshot((snapshot) => {
       const postData = [];
@@ -18,8 +17,14 @@ export default function RomChat() {
   const [conversation, setConversation] = useState([]);
   const  handleNewUserMessage = (newMessage) => {
     console.log(`New message incomig! ${newMessage}`);
-    // Now send the message throught the backend API (id_user and message)
   }
+    const onFinish = (values) => {
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
   return (
     <div className="roomchat">
       <div className='list-content-chat'>
@@ -35,8 +40,26 @@ export default function RomChat() {
         }
       </div>
       <div className='typing'>
-        <Input />
-        <Button>Send</Button>
+        <Form
+          style={{display:"flex"}}
+      name="basic"
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+    >
+      <Form.Item
+            name="text"
+      >
+        <Input style={{width:'400px'}} />
+      </Form.Item>
+      <Form.Item >
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
+    </Form>
       </div>
       </div>
   )

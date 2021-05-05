@@ -141,6 +141,8 @@ class MidGroup {
                 }
             })
 
+            console.log('123', isRegisted)
+
             if (isRegisted) {
                 throw new Error('Bạn hiện đang ở trong nhóm này');
             }
