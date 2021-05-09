@@ -114,7 +114,7 @@ export const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
             },
           ]}
         >
-          <InputNumber min={1}  defaultValue={1}  />
+          <InputNumber min={1}  />
         </Form.Item>        
         <Form.Item name="date" label="Thời gian"
             rules={[
